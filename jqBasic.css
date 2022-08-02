@@ -1,0 +1,48 @@
+#input1
+    {
+        width: 350px;
+        height: 30px;
+        font-size: 25px;
+        margin-top:1%
+    }
+    .container 
+    {
+        width: 100wh;
+    }
+    label{
+        font-size: 20px;
+    }
+    .box1
+    {
+        width: 20%;
+        height: 10%;
+        padding: 2.5%;
+    }
+    .suggestion
+    {
+        border:1px solid rgb(162, 162, 223);
+        width: 314px;
+        margin-top: 0px;
+        color: rgb(161, 161, 223);
+        list-style-type: none;
+    }
+
+    li{
+        text-decoration: none;
+        font-size: 25px;
+        /* padding: 2px 1px; */
+        border-top: 1px solid gray;
+    }
+    table{
+        width: 500px;
+    }
+    td,th{
+        border:1px solid black;
+        text-align: center;
+        height: 35px;
+        
+    }
+    tr{
+        background-color: lightgray;
+    }
+    
