@@ -22,7 +22,7 @@ $("ul").on("click", "li", function () {
 function lipopulate(arr) {
     let temp = "";
     for (let i = 0; i < arr.length; i++) {
-        temp += '<li>' + arr[i] + '</li>';
+        temp += '<li class="li">' + arr[i] + '</li>';
     }
     $(".suggestion").html(temp);
 }
@@ -44,10 +44,67 @@ $("#tb1").html(tmp);
 $("#evenbtn").click(function ()
 {
     $("tr").attr("style","");
-    $("tr:even").attr("style","background-color:dodgerblue ");
+    $("tr:odd").attr("style","background-color:dodgerblue ");
 });
 $("#oddbtn").click(function ()
 {
     $("tr").attr("style","");
-    $("tr:odd").attr("style","background-color:dodgerblue ");
-})
+    $("tr:even").attr("style","background-color:dodgerblue ");
+});
+
+
+// task 3
+
+var cat=["Cloths","Electronics"];
+var subcat=[["T-shirt","Trousers"],["mobile","tabs"]];
+popProdCat();
+function popProdCat()
+{
+    $(".box3").html("");
+    var temp="";
+    for(let i=0;i<cat.length;i++)
+    {
+      temp='<li>'+cat[i]+'<button id="add" index="'+i+'" class="button">+</button></li><ul id="'+cat[i]+'"></ul>';
+      $(".box3").html( $(".box3").html()+temp);
+      popSubCat(i);
+
+
+    }
+    
+   
+ 
+}
+function popSubCat(index)
+{
+    let tempc="";
+    if(subcat[index].length>0)
+       return false;
+    for(let ic=0;ic<subcat[index].length;ic++)
+    {
+      tempc+='<li>'+subcat[index][ic]+'<button id="add" index="'+ic+'" class="subutton">+</button></li>';
+     
+    }
+    $("#"+cat[index]).html(tempc);
+}
+
+$(".button").click(function()
+{
+  let id = $(this).attr("index");
+  let cate = prompt("Please enter new Category");
+  if (cate != null) {
+    cat.splice(id+1,0,cate);
+    var arr=[];
+    subcat.push(arr);
+    popProdCat();
+    console.log(cat);
+    console.log(subcat);
+
+
+  }
+});
+$(".subbutton").click(function()
+{
+  let id = $(this).attr("index");
+    
+});
+
