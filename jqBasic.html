@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="box1">
+            <label for="input1">Live Suggestion</label>
+            <input type="text" name="" id="input1">
+            <ul class="suggestion"></ul>
+        </div>
+    </div>
+</body>
+<style>
+    #input1
+    {
+        width: 350px;
+        height: 30px;
+        font-size: 25px;
+        margin-top:1%
+    }
+    .container 
+    {
+        width: 100wh;
+    }
+    label{
+        font-size: 20px;
+    }
+    .box1
+    {
+        width: 20%;
+        height: 10%;
+        padding: 2.5%;
+    }
+    .suggestion
+    {
+        border:1px solid rgb(162, 162, 223);
+        width: 314px;
+        margin-top: 0px;
+        color: rgb(161, 161, 223);
+        list-style-type: none;
+    }
+
+    li{
+        text-decoration: none;
+        font-size: 25px;
+        /* padding: 2px 1px; */
+        border-top: 1px solid gray;
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+var flower=["rose","lily","marrygold","lotus","Jasmine","Sunflower","Daisy","Tulip","magnolia","Lavender","Balsam","Flax","Butterfly Pea","Crossandra","Golden Shower","Forest Ghost","Pot Marigold"];
+ $("#input1").keyup(function()
+ {
+    var li=[];
+    var tmp="";
+    let inpu=$(this).val();
+    inpu=inpu.toLowerCase();
+    let len=inpu.length;
+    for(let i=0;i<flower.length;i++)
+    {
+        flower[i]=flower[i].toLowerCase();
+         tmp=flower[i].slice(0, len);
+        if(inpu==tmp)
+         {
+            li.push(flower[i]);   
+        }
+    }
+    console.log(li);
+    lipopulate(li);
+ });
+ $("ul").on("click","li",function()
+ {
+    let txt=$(this).text();
+    $("#input1").val(txt);
+ })
+ function lipopulate(arr)
+ {
+  let temp="";
+  for(let i=0;i<arr.length;i++)
+  {
+    temp+='<li>'+arr[i]+'</li>';
+  }
+  $(".suggestion").html(temp);
+ }
+</script>
+</html>
