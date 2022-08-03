@@ -227,3 +227,23 @@ $(".box6").on("click","#btnbox6",function()
         
     }
   }
+
+//   Task 10 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+var cntCrousal=1;
+$(".box10").on("click","button",function ()
+{
+    if($(this).text()=="Previous")
+    {
+        if(cntCrousal==6)
+        cntCrousal=0;
+        cntCrousal++;
+        $(".crousal").attr("src","img"+cntCrousal+".jpg")
+    }
+    if($(this).text()=="Next")
+    {
+        if(cntCrousal==1)
+        cntCrousal=7;
+        cntCrousal--;
+        $(".crousal").attr("src","img"+cntCrousal+".jpg")
+    }
+})
