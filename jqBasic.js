@@ -28,83 +28,88 @@ function lipopulate(arr) {
 }
 
 
-// task 2
-var box2=[{company:"Akdsf ds",contact:"465865658",country:"india"},{company:"Sfsfm  dvf",contact:"875484",country:"Australia"},{company:"Mndfshj ",contact:"2541364",country:"Japan"},{company:"Gffgh ",contact:"54664",country:"Pak"},{company:"dfbhdb df",contact:"32535",country:"maraba"},{company:"dfgd v",contact:"36554",country:"Lanka"}];
+// task 2 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+var box2 = [{ company: "Akdsf ds", contact: "465865658", country: "india" }, { company: "Sfsfm  dvf", contact: "875484", country: "Australia" }, { company: "Mndfshj ", contact: "2541364", country: "Japan" }, { company: "Gffgh ", contact: "54664", country: "Pak" }, { company: "dfbhdb df", contact: "32535", country: "maraba" }, { company: "dfgd v", contact: "36554", country: "Lanka" }];
 populatebox2();
-function populatebox2()
-{
-    let tmp="";
-for(let i=0;i<box2.length;i++)
-{
-    tmp+='<tr><td>'+box2[i].company+'</td><td>'+box2[i].contact+'</td><td>'+box2[i].country+'</td></tr>'
-}
-$("#tb1").html(tmp);
+function populatebox2() {
+    let tmp = "";
+    for (let i = 0; i < box2.length; i++) {
+        tmp += '<tr><td>' + box2[i].company + '</td><td>' + box2[i].contact + '</td><td>' + box2[i].country + '</td></tr>'
+    }
+    $("#tb1").html(tmp);
 }
 
-$("#evenbtn").click(function ()
-{
-    $("tr").attr("style","");
-    $("tr:odd").attr("style","background-color:dodgerblue ");
+$("#evenbtn").click(function () {
+    $("tr").attr("style", "");
+    $("tr:odd").attr("style", "background-color:dodgerblue ");
 });
-$("#oddbtn").click(function ()
-{
-    $("tr").attr("style","");
-    $("tr:even").attr("style","background-color:dodgerblue ");
+$("#oddbtn").click(function () {
+    $("tr").attr("style", "");
+    $("tr:even").attr("style", "background-color:dodgerblue ");
 });
 
 
-// task 3
 
-var cat=["Cloths","Electronics"];
-var subcat=[["T-shirt","Trousers"],["mobile","tabs"]];
+// task 3 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
+var cat = ["Cloths", "Electronics"];
+var subcat = [["T-shirt", "Trousers"], ["mobile", "tabs"]];
 popProdCat();
-function popProdCat()
-{
+function popProdCat() {
     $(".box3").html("");
-    var temp="";
-    for(let i=0;i<cat.length;i++)
-    {
-      temp='<li>'+cat[i]+'<button id="add" index="'+i+'" class="button">+</button></li><ul id="'+cat[i]+'"></ul>';
-      $(".box3").html( $(".box3").html()+temp);
-      popSubCat(i);
+    var temp = "";
+    for (let i = 0; i < cat.length; i++) {
+        temp = '<li>' + cat[i] + '<button id="add" index="' + i + '" class="button">+</button></li><ul id="' + cat[i] + '"></ul>';
+        $(".box3").html($(".box3").html() + temp);
+        popSubCat(i);
+    }
+}
+function popSubCat(index) {
+    let tempc = "";
+    if (subcat[index].length < 1)
+        return false;
+    for (let ic = 0; ic < subcat[index].length; ic++) {
+        tempc += '<li>' + subcat[index][ic] + '<button id="add" catindex="' + index + '" index="' + ic + '" class="subutton">+</button></li>';
+
+    }
+    $("#" + cat[index]).html(tempc);
+}
+
+$(".box3").on("click", ".button", function () {
+    // debugger;
+    let id = $(this).attr("index");
+    let cate = prompt("Please enter new Category");
+    if (cate != null) {
+        id = parseInt(id);
+        cat.splice(id + 1, 0, cate);
+        var arr = [];
+        subcat.splice(id + 1, 0, arr);
+        popProdCat();
+        // console.log(cat);
+        // console.log(subcat);
 
 
     }
-    
-   
- 
-}
-function popSubCat(index)
-{
-    let tempc="";
-    if(subcat[index].length>0)
-       return false;
-    for(let ic=0;ic<subcat[index].length;ic++)
-    {
-      tempc+='<li>'+subcat[index][ic]+'<button id="add" index="'+ic+'" class="subutton">+</button></li>';
-     
+});
+
+$(".box3").on("click", ".subutton", function () {
+    let id = $(this).attr("index");
+    let index = $(this).attr("catindex");
+    let cate = prompt("Please enter new SubCategory");
+    if (cate != null) {
+        id = parseInt(id);
+        subcat[index].splice(id + 1, 0, cate);
+        popProdCat();
+        // console.log(cat);
+        // console.log(subcat);
+
+
     }
-    $("#"+cat[index]).html(tempc);
-}
-
-$(".button").click(function()
-{
-  let id = $(this).attr("index");
-  let cate = prompt("Please enter new Category");
-  if (cate != null) {
-    cat.splice(id+1,0,cate);
-    var arr=[];
-    subcat.push(arr);
-    popProdCat();
-    console.log(cat);
-    console.log(subcat);
-
-
-  }
 });
-$(".subbutton").click(function()
-{
-  let id = $(this).attr("index");
-    
-});
+
+//  Task 4 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+
 
