@@ -112,26 +112,28 @@ $(".box3").on("click", ".subutton", function () {
 //  Task 4 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
 var box4=[];
-var row=2;
-$("#btnplus").click(function()
+var row=1;
+$(".box4").on("click","#btnplus",function()
 {
   let classes=  $("#class").val();
   let board=  $("#board").val();
   let marks=  $("#marks").val();
   let division=  $("#division").val();
 
-
-
-    let txt='<div class="col col'+row+'"><h4 style="margin-left:10px">Qualification '+row+'</h4><div class="row"><input class="input4" value="'+classes+'" placeholder="Enter class" id="class'+row+'" type="text"><input placeholder="Enter board" value="'+board+'" id="board'+row+'" class="input4" type="text"><input placeholder="Enter marks" value="'+marks+'" id="marks'+row+'" class="input4" type="text"><input placeholder="Enter division" value="'+division+'" id="division'+row+'" class="input4" type="text"></div>';
-    $(".box4").append(txt);
+  var index=$(this).attr("index");
+   
+    let txt='<div class="col col'+row+'"><h4 style="margin-left:10px">Qualification '+row+'</h4><div class="row"><input class="input4" value="'+classes+'" placeholder="Enter class" id="class'+row+'" type="text"><input placeholder="Enter board" value="'+board+'" id="board'+row+'" class="input4" type="text"><input placeholder="Enter marks" value="'+marks+'" id="marks'+row+'" class="input4" type="text"><input placeholder="Enter division" value="'+division+'" id="division'+row+'" class="input4" type="text"> <button id="btnplus" class="input4 btn4" index="'+row+'">+</button><button  id="btnminus" index="'+row+'" class="input4 btn4">-</button></div>';
+    $(".col"+index).after(txt);
     row++;
     $("#class").val("");$("#board").val("");$("#marks").val("");$("#division").val("");
 });
 
-$("#btnminus").click(function()
+$(".box4").on("click","#btnminus",function()
 {
-    $(".col"+row).remove();
-    if(row>2)
+    var index=$(this).attr("index");
+    // alert(index)
+;    $(".col"+index).remove();
+    if(row>1)
     row--;
 });
 
@@ -161,13 +163,6 @@ $(".box6").on("click","#btnbox6",function()
     $(".lname").removeClass('focus');
 
     let err=0;
-    if(fname=="")
-    {
-        alert('First name cannot be empty!');
-        $(".fname").focus();
-        $(".fname").addClass('focus');
-        err++;
-    }
     if(lname=="")
     {
 
@@ -175,7 +170,15 @@ $(".box6").on("click","#btnbox6",function()
         $(".lname").focus();
         $(".lname").addClass('focus');
         err++;
-    }    
+    }   
+    if(fname=="")
+    {
+        alert('First name cannot be empty!');
+        $(".fname").focus();
+        $(".fname").addClass('focus');
+        err++;
+    }
+    
     if(err==0)
     {
       alert('Success');
