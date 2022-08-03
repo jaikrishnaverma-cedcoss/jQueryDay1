@@ -22,6 +22,7 @@
     .container 
     {
         width: 100wh;
+        margin-bottom: 100px;
     }
     h2{
         text-align: center;
@@ -79,4 +80,10 @@
     .focus
     {
         background-color: red;
+    }
+    #tbody9 select
+    {
+        font-size: 18px !important;
+        width:130px;
+        padding: 4px;
     }

@@ -190,4 +190,40 @@ $(".box6").on("click","#btnbox6",function()
  $("#clickp").click(function()
  {
     alert("Clicked me");
- })
+ });
+
+ // Task 9 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+  var prod9=["Duffle Bag","T-Shirts"];
+  var colPrice=[{"small":1000,"medium":2000,"large":2500},{"small":1200,"medium":2540,"large":3500}];
+  pop9();
+ $("#tbody9").on("change","select",function ()
+ {
+     let index=$(this).attr("index");
+     let key=$(this).val();
+     index=parseInt(index);
+     $("#price9"+index).text(colPrice[index][key]);
+    //  pop9();
+ });
+
+
+
+
+  function pop9(){
+    let tmp="";
+    for(let i=0;i<prod9.length;i++)
+    {
+        tmp+=' <tr><td>'+prod9[i]+'</td><td><select class="selector" index="'+i+'" id="select9'+i+'">'+options(i)+'</select></td><td id="price9'+i+'">'+colPrice[i].small+'/-</td></tr>';
+    }
+    $("#tbody9").html(tmp);
+    function options(index)
+    {
+        let opt="";
+        $.each(colPrice[index], function(key,val) {
+          
+         opt+='<option index="'+index+'" value="'+key+'">'+key+'</option>';
+        });
+        return opt;
+        
+    }
+  }
