@@ -133,5 +133,20 @@ $("#btnminus").click(function()
     $(".col"+row).remove();
     if(row>2)
     row--;
+});
+
+
+// Task 5& &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+$(".box5").on("keyup","input",function()
+{
+    let pass=$(".password").val();
+    let confirmPass=$(".confirmPassword").val();
+    if(pass!=confirmPass)
+      $("#notify5").text("Password did't match!");
+      else
+      $("#notify5").text("");
 })
+
+
 
