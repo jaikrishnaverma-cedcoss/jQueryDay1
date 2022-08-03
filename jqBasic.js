@@ -146,7 +146,39 @@ $(".box5").on("keyup","input",function()
       $("#notify5").text("Password did't match!");
       else
       $("#notify5").text("");
-})
+});
 
 
+// Task 6 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+$(".box6").on("click","#btnbox6",function()
+{
+    let fname=$(".fname").val();
+    let lname=$(".lname").val();
+    $(".fname").toggleClass('focus');
+    $(".lname").toggleClass('focus');
+    $(".fname").removeClass('focus');
+    $(".lname").removeClass('focus');
+
+    let err=0;
+    if(fname=="")
+    {
+        alert('First name cannot be empty!');
+        $(".fname").focus();
+        $(".fname").addClass('focus');
+        err++;
+    }
+    if(lname=="")
+    {
+
+        alert('Last name cannot be empty!');
+        $(".lname").focus();
+        $(".lname").addClass('focus');
+        err++;
+    }    
+    if(err==0)
+    {
+      alert('Success');
+    }
+});
 

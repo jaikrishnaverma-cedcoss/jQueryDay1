@@ -62,17 +62,21 @@
     tr{
         background-color: lightgray;
     }
-    .box5
+    .box5,.box6
     {
         width:300px;
     }
-    .box5 .col input{
-        height: 26px;
+    .box5 .col input, .box6 .col input{
+        height: 28px;
         border-radius: 5px;
-        font-size: 18px;
+        font-size: 20px;
     }
-    #btnbox5
+    #btnbox5,#btnbox6
     {
         width: 65px;
         padding: 5px;
+    }
+    .focus
+    {
+        background-color: red;
     }
