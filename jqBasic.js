@@ -111,5 +111,27 @@ $(".box3").on("click", ".subutton", function () {
 
 //  Task 4 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
+var box4=[];
+var row=2;
+$("#btnplus").click(function()
+{
+  let classes=  $("#class").val();
+  let board=  $("#board").val();
+  let marks=  $("#marks").val();
+  let division=  $("#division").val();
 
+
+
+    let txt='<div class="col col'+row+'"><h4 style="margin-left:10px">Qualification '+row+'</h4><div class="row"><input class="input4" value="'+classes+'" placeholder="Enter class" id="class'+row+'" type="text"><input placeholder="Enter board" value="'+board+'" id="board'+row+'" class="input4" type="text"><input placeholder="Enter marks" value="'+marks+'" id="marks'+row+'" class="input4" type="text"><input placeholder="Enter division" value="'+division+'" id="division'+row+'" class="input4" type="text"></div>';
+    $(".box4").append(txt);
+    row++;
+    $("#class").val("");$("#board").val("");$("#marks").val("");$("#division").val("");
+});
+
+$("#btnminus").click(function()
+{
+    $(".col"+row).remove();
+    if(row>2)
+    row--;
+})
 
